@@ -1,15 +1,41 @@
-int fib[n+1];
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int fibonacciCount = 0;  // Đếm số lần tính Fibonacci
+
+// Hàm tính số Fibonacci sử dụng cách lặp và in các vòng lặp
+void fibonacci(int n) {
+    // Nếu n <= 1, in trực tiếp
+    if (n == 0) {
+        cout << "fib[0] = 0" << endl;
+        fibonacciCount++;
+        return;
+    }
+    if (n == 1) {
+        cout << "fib[0] = 0, fib[1] = 1" << endl;
+        fibonacciCount += 2;
+        return;
+    }
+
+    // Mảng để lưu giá trị Fibonacci
+    int fib[n+1];
     fib[0] = 0;
     fib[1] = 1;
-    fibonacciCount++;  // Tính Fibonacci cho fib[0] và fib[1]
-    fibonacciCount++;
+    fibonacciCount++;  // Tính Fibonacci cho fib[0]
+    fibonacciCount++;  // Tính Fibonacci cho fib[1]
+    
+    cout << "fib[0] = 0" << endl;
+    cout << "fib[1] = 1" << endl;
 
     // Tính Fibonacci từ fib[2] đến fib[n]
     for (int i = 2; i <= n; i++) {
         fib[i] = fib[i-1] + fib[i-2];
         fibonacciCount++;  // Đếm mỗi lần tính Fibonacci
         // In ra vòng lặp tính toán Fibonacci
-        cout << "fib[" << i << "] = fib[" << i-1 << "] + fib[" << i-2 << "] => " 
+        cout << "fib[" << i << "] = fib[" << i-1 << "] + fib[" << i-2 << "] => "
              << fib[i-1] << " + " << fib[i-2] << " = " << fib[i] << endl;
     }
 
