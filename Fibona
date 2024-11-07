@@ -1,0 +1,32 @@
+int fib[n+1];
+    fib[0] = 0;
+    fib[1] = 1;
+    fibonacciCount++;  // Tính Fibonacci cho fib[0] và fib[1]
+    fibonacciCount++;
+
+    // Tính Fibonacci từ fib[2] đến fib[n]
+    for (int i = 2; i <= n; i++) {
+        fib[i] = fib[i-1] + fib[i-2];
+        fibonacciCount++;  // Đếm mỗi lần tính Fibonacci
+        // In ra vòng lặp tính toán Fibonacci
+        cout << "fib[" << i << "] = fib[" << i-1 << "] + fib[" << i-2 << "] => " 
+             << fib[i-1] << " + " << fib[i-2] << " = " << fib[i] << endl;
+    }
+
+    // In ra toàn bộ dãy Fibonacci đã tính
+    cout << "Dãy Fibonacci đến " << n << " là: ";
+    for (int i = 0; i <= n; i++) {
+        cout << fib[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int n = 10;  // Giới hạn của dãy Fibonacci
+
+    cout << "Tính dãy Fibonacci cho n = " << n << endl;
+    fibonacci(n);
+    cout << "Số lần tính Fibonacci: " << fibonacciCount << endl;
+
+    return 0;
+}
